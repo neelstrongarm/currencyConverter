@@ -12,8 +12,14 @@ def index():
         return render_template("index.html", currency = sorted(currency))
     else:
         frm = request.form.get("from")
+        if not frm: 
+            return render_template("apology.html", inp = "Select Currency")
         to = request.form.get("to")
+        if not to: 
+            return render_template("apology.html", inp = "Select Currency")
         amt = request.form.get("amount")
+        if not amt or amt == 0: 
+            return render_template("apology.html", inp = "Enter amount")
         ans = calculate(frm, to, float(amt))
         # return render_template('output.html', ans = ans, unit = to )
         return render_template('index.html', ans = ans, unit = to)

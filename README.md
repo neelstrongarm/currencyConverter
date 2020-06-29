@@ -1,2 +1,2 @@
-# Currency-convertor
-web based currency convertor
+# Currency-converter
+web based currency converter

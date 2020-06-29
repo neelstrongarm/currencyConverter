@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>
+            Currency Convertor
+        </title>
+
+        <style>
+            .form
+            {
+                text-align: center;
+                padding: 20 px;
+                
+            }
+        </style>
+    </head>
+
+    <body style='background-color: rgb(177, 228, 129);'>
+
+        <form action="/" method="post">
+            <input class= "form" type="text" name="amount" placeholder="Enter amount here">
+            <input class= "form" type="submit" placeholder="Convert">
+
+            <select name="from">
+                <option disabled selected value=""> Select </option>
+                    {% for i in currency %}
+                    <option> {{i}} </option>
+                    {% endfor %}
+            </select>
+            <p> TO </p>
+            <select name="to">
+                <option disabled selected value=""> Select </option>
+                {% for j in currency %}
+                <option> {{j}} </option>
+                {% endfor %}
+            </select>
+            
+        </form>
+        
+    </body>
+</html>

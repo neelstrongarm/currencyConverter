@@ -10,17 +10,18 @@
         <style>
             .form
             {
-                text-align: center;
                 padding: 20 px;
                 background-color: rgb(14, 83, 54);
                 width: 100px;
                 color: white;
                 font: x-large;
+                text-align: center;
             }
             .division
             {
                 text-align: center;
                 padding: 100px;
+                float: left;
             }
             .heading
             {
@@ -34,6 +35,8 @@
                 font-size: 0.5in;
                 color:rgb(90, 10, 10);
                 text-align:center;
+                float: right;
+                padding: 100px;
             }
         </style>
     </head>
@@ -49,26 +52,29 @@
                 <br>
                 <br>
                 <select class= "form" name="from" >
-                    <option disabled selected value=""> Select </option>
+                    <option disabled selected value=""> From </option>
                         {% for i in currency %}
                         <option> {{i}} </option>
                         {% endfor %}
                 </select>
                 <select class= "form" name="to">
-                    <option disabled selected value=""> Select </option>
+                    <option disabled selected value=""> To </option>
                     {% for j in currency %}
                     <option> {{j}} </option>
                     {% endfor %}
                 </select>  
             </form>
+
+            <form action="/">
+                <br> <br>
+                <button type="submit" method="GET" style="font-size: medium;">Reset</button>
+            </form>
         </div>
 
         <div class="div2" >
-                Converted amount is: {{ unit }} {{ ans }}
-                <form action="/">
-                    <button type="submit" method="GET" style="font-size: medium;">Reset</button>
-                </form>
-        </div>
-
+                Converted amount is: <br>{{ unit }} {{ ans }}
+                <br>
+                show conversion rate
+        </div>        
     </body>
 </html>

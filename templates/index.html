@@ -7,22 +7,6 @@
             Currency Convertor
         </title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-       <script>
-           function submit()
-           {
-            var x = document.getElementById("para");
-            if (x.style.visibility === "hidden") 
-                {
-                    x.style.visibility = "visible";
-                }         
-            else 
-                {
-                    x.style.visibility = "hidden";
-                }
-            // var x = document.getElementById("para"); 
-            //     x.style.visibility= "visible";                    
-           }
-       </script>
         <style>
             .form
             {
@@ -30,7 +14,7 @@
                 background-color: rgb(14, 83, 54);
                 width: 100px;
                 color: white;
-                font: x-large;
+                font: xx-large;
                 text-align: center;
             }
             .division
@@ -46,18 +30,9 @@
                 text-align: center;
                 padding-top: 50px;
             }
-            #para
+            #div2
             {
-                font-size: xx-large;
-                color:rgb(90, 10, 10);
-                text-align:center;
-                float: right;
-                padding: 100px;
-                visibility: hidden;
-            }
-            .div3
-            {
-                font-size: xx-large;
+                font-size: 0.5in;
                 color:rgb(90, 10, 10);
                 text-align:center;
                 float: right;
@@ -72,37 +47,41 @@
 
         <div class="division">
             <form action="/" method="POST">
+
                 <input type="text" name="amount" placeholder="Enter amount here">
-                <br>
-                <br>
+
+                <br><br>
+
                 <select class= "form" name="from" >
                     <option disabled selected value=""> From </option>
                         {% for i in currency %}
                         <option> {{i}} </option>
                         {% endfor %}
                 </select>
+
                 <select class= "form" name="to">
                     <option disabled selected value=""> To </option>
                     {% for j in currency %}
                     <option> {{j}} </option>
                     {% endfor %}
                 </select>  
-                <br>
-                <br>
-                <button style="font-size: medium" type="submit" onclick= "submit()">Convert</button>
+
+                <br><br>
+
+                <button type="submit" onclick="hide()">Convert</button>
             </form>
 
             <form action="/">
-                <br> <br>
-                <button type="submit" method="GET" style="font-size: medium">Reset</button>
+
+                <br><br>
+
+                <button type="submit" method="GET" style="font-size: medium;">Reset</button>
             </form>
         </div>
 
-        <div id="para">
-            Converted amount is: <br>{{ unit }} {{ ans }}<br>
-            1 {{frm}} = {{con_rate}} {{to}}
-            <br>
-            Date: {{date}}
-        </div>
+        <div id = "div2">
+                Converted amount is: <br> {{ unit }} {{ ans }}
+                <br>
+        </div>    
     </body>
 </html>

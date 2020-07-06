@@ -1,6 +1,6 @@
 # Currency Converter
 
-A web-based Currency Converter
+A web-based Currency Converter that uses real time updated values of currency rates with the help of an API.
 
 ## Getting Started
 

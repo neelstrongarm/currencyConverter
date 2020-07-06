@@ -1,84 +1,108 @@
-<!-- The main homepage of the entire project -->
+<!-- Homepage for converter -->
 <!DOCTYPE html>
-<html lang='en'>
+
+<html lang="en">
     <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>
-            Morse Code Translator
+            Currency Convertor
         </title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+       <script>
+           function submit()
+           {
+            var x = document.getElementById("para");
+            if (x.style.visibility === "hidden") 
+                {
+                    x.style.visibility = "visible";
+                }         
+            else 
+                {
+                    x.style.visibility = "hidden";
+                }
+            // var x = document.getElementById("para"); 
+            //     x.style.visibility= "visible";                    
+           }
+       </script>
         <style>
+            .form
+            {
+                padding: 20 px;
+                background-color: rgb(14, 83, 54);
+                width: 100px;
+                color: white;
+                font: x-large;
+                text-align: center;
+            }
+            .division
+            {
+                text-align: center;
+                padding: 100px;
+                float: left;
+            }
             .heading
             {
-                color : rgb(179, 42, 83);
-                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; 
-                text-align: center; 
-                /* padding-top: 50px; */
-                font-size: 1in; 
-                
-            }
-            /* Class for "English to Morse" button */
-            .division1
-            {
-                float:left;
+                font-size: 1in;
+                color:rgb(90, 10, 10);
                 text-align: center;
+                padding-top: 50px;
+            }
+            #para
+            {
+                font-size: xx-large;
+                color:rgb(90, 10, 10);
+                text-align:center;
+                float: right;
                 padding: 100px;
-                background-color: rgb(32, 204, 204);
+                visibility: hidden;
             }
-            /* Class for "Morse to English" button */
-            .division2
+            .div3
             {
-                float:right;
-                text-align: center;
+                font-size: xx-large;
+                color:rgb(90, 10, 10);
+                text-align:center;
+                float: right;
                 padding: 100px;
-                background-color: rgb(32, 204, 204);
-            }
-            /* Class for the buttons */
-            .butt
-            {
-                padding-left:  100px;
-                padding-right: 100px;
-                padding-top: 20px;
-                padding-bottom: 20px;
-                border: solid black;
-                background-color: rgb(18, 80, 131); 
-                color: white;
-                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; 
-                font-size: large;
-            }
-            /* Class for the intro Paragraph */
-            .para
-            {
-                text-align: center;
-                font-size: x-large;
-                color: rgb(116, 28, 76);
-                font-family: Georgia;
             }
         </style>
-
     </head>
 
-    <body style='background-color: rgb(32, 204, 204)'>
-        <h1 class=heading >Morse Code Translator</h1>
+    <body style='background-color: rgb(177, 228, 129)'>
 
-        <p class=para>
-            Morse code is a method used in telecommunication <br>to encode text characters as standardized sequences<br> of two different signal durations, <br>called dots and dashes or dits and dahs.
-        </p>
+        <h1 class="heading"> CURRENCY CONVERTER </h1>
 
-        <div class=division1>
-
-            <form action="/eng_to_morse_butt">
-                <button type="submit" class=butt method="GET">ENGLISH TO MORSE</button>
+        <div class="division">
+            <form action="/" method="POST">
+                <input type="text" name="amount" placeholder="Enter amount here">
+                <br>
+                <br>
+                <select class= "form" name="from" >
+                    <option disabled selected value=""> From </option>
+                        {% for i in currency %}
+                        <option> {{i}} </option>
+                        {% endfor %}
+                </select>
+                <select class= "form" name="to">
+                    <option disabled selected value=""> To </option>
+                    {% for j in currency %}
+                    <option> {{j}} </option>
+                    {% endfor %}
+                </select>  
+                <br>
+                <br>
+                <button style="font-size: medium" type="submit" onclick= "submit()">Convert</button>
             </form>
 
-        </div>
-
-        <div class=division2>
-
-            <form action="/morse_to_eng_butt">
-                <button type="submit" class=butt method="GET">MORSE TO ENGLISH</button>
+            <form action="/">
+                <br> <br>
+                <button type="submit" method="GET" style="font-size: medium">Reset</button>
             </form>
-
         </div>
 
+        <div id="para">
+            Converted amount is: <br>{{ unit }} {{ ans }}<br>
+            1 {{frm}} = {{con_rate}} {{to}}
+            <br>
+            Date: {{date}}
+        </div>
     </body>
 </html>
